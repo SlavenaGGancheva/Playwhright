@@ -20,25 +20,26 @@ test('Auto waiting', async ({ page }) => {
     await expect(successButtton).toHaveText('Data loaded with AJAX get request.', {timeout: 20000})
 })
 
-// test('Alternative waits', async ({ page }) => {
-//     const successButtton = page.locator('.bg-success')
+test('Alternative waits', async ({ page }) => {
+    const successButtton = page.locator('.bg-success')
 
-//     //___ wait for element
-//     // await page.waitForSelector('.bg-success')
+    //___ wait for element
+    // await page.waitForSelector('.bg-success')
 
-//     //___ wait for a particular response
-//     // await page.waitForResponse('http://uitestingplayground.com/ajaxdata')
+    //___ wait for a particular response
+    // await page.waitForResponse('http://uitestingplayground.com/ajaxdata')
 
-//     //___ wait for network calls to be completed (NOT RECOMMENDED)
-//     // await page.waitForLoadState('networkidle')
+    //___ wait for network calls to be completed (NOT RECOMMENDED)
+    await page.waitForLoadState('networkidle')
 
-//     //const text = await successButtton.allTextContents()
-//     //expect(text).toContain('Data loaded with AJAX get request.')
-// })
+    //const text = await successButtton.allTextContents()
+    //expect(text).toContain('Data loaded with AJAX get request.')
+})
 
 test('Timeouts', async ({ page }) => {
-    test.setTimeout(10000)
-    test.slow()
+    
+    // test.setTimeout(10000)
+    // test.slow()
     const successButtton = page.locator('.bg-success')
     await successButtton.click()
 })
