@@ -16,7 +16,6 @@ test('Navigate to Form page', async ({ page }) => {
 
 test('Parametrized methods', async ({ page }) => {
     const pm = new PageManager(page)
-    
     await pm.navigateTo().formLayoutsPage()
     await pm.onFormLayoutsPage().submitUsingTheGridFormWithCredentialsAndSelectOption('test@test.com', 'Welcome1', 'Option 1')
     await pm.onFormLayoutsPage().submitInlineFormWithNameEmailAndCheckbox('John Smith', 'John@test.com', true)
